@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Rodadas - {{ nome_campeonato }}</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    ul { list-style: none; padding: 0; }
+    li { padding: .5rem 0; border-bottom: 1px solid #ddd; }
+    a { text-decoration: none; color: #0066cc; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <h1>Rodadas de {{ nome_campeonato }}</h1>
+  <ul>
+    {% if rodadas %}
+      {% for r in rodadas %}
+        <li>
+          <!-- Aqui usamos r.id (o número da rodada) para construir o link -->
+          <a href="{{ url_for('mostrar_partidas', rodada_id=r.id) }}">
+            {{ r.nome }}
+          </a>
+        </li>
+      {% endfor %}
+    {% else %}
+      <li>Nenhuma rodada encontrada.</li>
+    {% endif %}
+  </ul>
+  <p><a href="{{ url_for('inicio') }}">← Voltar</a></p>
+</body>
+</html>

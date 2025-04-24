@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><title>Campeonatos</title></head>
+<body>
+  <h1>Campeonatos Disponíveis</h1>
+  <ul>
+    {% for c in campeonatos %}
+      <li>
+        <a href="{{ url_for('mostrar_rodadas', campeonato_id=c.id) }}">
+          {{ c.nome }} ({{ c.slug }})
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

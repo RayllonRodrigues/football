@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Partidas</title>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+    ul { list-style: none; padding: 0; }
+    li { padding: .5rem 0; border-bottom: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <h1>Partidas</h1>
+  <ul>
+    {% if partidas %}
+      {% for p in partidas %}
+        <li>
+          <strong>{{ p.mandante }}</strong> {{ p.gols_mandante }}
+          x {{ p.gols_visitante }} <strong>{{ p.visitante }}</strong>
+          — status: {{ p.status }}
+        </li>
+      {% endfor %}
+    {% else %}
+      <li>Nenhuma partida encontrada.</li>
+    {% endif %}
+  </ul>
+  <p><a href="javascript:history.back()">← Voltar</a></p>
+</body>
+</html>
